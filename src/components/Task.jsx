@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 class Task extends Component {
   constructor(props) {
@@ -43,16 +44,36 @@ class Task extends Component {
 
     return (
       <ul>
-        <label htmlFor={id}>
+        <StyledLabel htmlFor={id}>
           <input type="checkbox" id={id} checked={checked} onChange={this.markTaskComplete} />
-          <input type="text" value={description} onChange={this.updateTaskDescription} />
-        </label>
-        <button type="button" onClick={this.deleteTask}>
+          <StyledInput type="text" value={description} onChange={this.updateTaskDescription} />
+        </StyledLabel>
+        <StyledButton type="button" onClick={this.deleteTask}>
           Delete
-        </button>
+        </StyledButton>
       </ul>
     );
   }
 }
 
 export default Task;
+
+const StyledLabel = styled.label`
+  float: left;
+  cursor: pointer;
+`;
+const StyledInput = styled.input`
+  outline: none;
+  font-size: 13px;
+  padding: 3px;
+`;
+const StyledButton = styled.button`
+  float: right;
+  background: palevioletred;
+  color: #fff;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  margin-top: 3px;
+  outline: none;
+  cursor: pointer;
+`;

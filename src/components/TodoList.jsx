@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Task from "./Task";
 import AddTaskForm from "./AddTaskForm";
+import styled from "styled-components";
 import axios from "axios";
 
 class TodoList extends Component {
@@ -43,7 +44,9 @@ class TodoList extends Component {
 
   render() {
     const { error, isLoaded, tasks } = this.state;
-
+    const StyledUl = styled.ul`
+      padding: 0;
+    `;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -52,11 +55,11 @@ class TodoList extends Component {
       return (
         <div>
           <AddTaskForm tasks={tasks} handleNewTask={this.handleNewTask} />
-          <ul className="todoList">
+          <StyledUl className="todoList">
             {tasks.map((task, key) => (
               <Task task={task} key={task._id} handleDeleteTask={this.handleDeleteTask} />
             ))}
-          </ul>
+          </StyledUl>
         </div>
       );
     }

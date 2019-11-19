@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 class AddTaskForm extends Component {
   constructor(props) {
@@ -22,11 +23,13 @@ class AddTaskForm extends Component {
   handleChange(event) {
     this.setState({ description: event.target.value });
   }
+
   render() {
     const { description } = this.state;
+
     return (
       <form onSubmit={event => this.addTask(event)}>
-        <input focus="true" type="text" value={description} onChange={this.handleChange} placeholder="Today I want to..." />
+        <FormInput focus="true" type="text" value={description} onChange={this.handleChange} placeholder="Today I want to..." />
         <button type="submit" style={{ display: "none" }}>
           Submit
         </button>
@@ -35,3 +38,12 @@ class AddTaskForm extends Component {
   }
 }
 export default AddTaskForm;
+
+const FormInput = styled.input`
+  width: 235px;
+  outline: none;
+  font-size: 13px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+`;
