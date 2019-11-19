@@ -45,4 +45,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### Deployment
 
-The to-do-app is deployed on [Heroku](http://petya-to-do-app.herokuapp.com/)
+The to-do-list-app is deployed on [Heroku](http://petya-to-do-app.herokuapp.com/)
