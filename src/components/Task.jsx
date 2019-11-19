@@ -22,7 +22,6 @@ class Task extends Component {
       checked: task.completed
     });
     await this.updateTask(task);
-    this.props.handleCompletedTask();
   }
   async updateTaskDescription(event) {
     let { task } = this.props;
